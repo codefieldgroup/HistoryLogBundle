@@ -1,0 +1,30 @@
+{
+    "name" : "cf/historylogbundle",
+    "description" : "A History Log bundle",
+    "type" : "symfony-bundle",
+    "authors" : [{
+        "name" : "Jose Carlos Ramos Carmenates",
+        "email" : "jramoscarmenates@gmail.com"
+    }],
+    "keywords" : [
+        "demo bundle"
+    ],
+    "license" : [
+        "MIT"
+    ],
+    "require" : {
+    },
+    "autoload" : {
+        "psr-0" : {
+            "Cf\\HistoryLogBundle" : ""
+        }
+    },
+    "target-dir" : "Cf/HistoryLogBundle",
+    "repositories" : [{
+    }],
+    "extra" : {
+    "branch-alias" : {
+            "dev-master" : "1.0.0"
+        }
+    }
+}
