@@ -1,5 +1,5 @@
 {
-    "name" : "cf/historylogbundle",
+    "name" : "cf/HistoryLogBundle",
     "description" : "A History Log bundle",
     "type" : "symfony-bundle",
     "authors" : [{
@@ -13,6 +13,7 @@
         "MIT"
     ],
     "require" : {
+      "cf/commonbundle": "dev-master"
     },
     "autoload" : {
         "psr-0" : {
@@ -21,6 +22,8 @@
     },
     "target-dir" : "Cf/HistoryLogBundle",
     "repositories" : [{
+      "type": "vcs",
+      "url": "https://github.com/codefieldgroup/CommonBundle.git"
     }],
     "extra" : {
     "branch-alias" : {
