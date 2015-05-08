@@ -1,5 +1,5 @@
 {
-    "name" : "cf/HistoryLogBundle",
+    "name" : "cf/history-log-bundle",
     "description" : "A History Log bundle",
     "type" : "symfony-bundle",
     "authors" : [{
