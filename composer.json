@@ -21,10 +21,16 @@
         }
     },
     "target-dir" : "Cf/HistoryLogBundle",
-    "repositories" : [{
-      "type": "vcs",
-      "url": "https://github.com/codefieldgroup/CommonBundle.git"
-    }],
+    "repositories" : [
+      {
+        "type": "vcs",
+        "url": "https://github.com/codefieldgroup/CommonBundle.git"
+      },
+      {
+        "type": "vcs",
+        "url": "http://gitlab:8080/josecarlos/CommonBundle.git"
+      }
+    ],
     "extra" : {
     "branch-alias" : {
             "dev-master" : "1.0.0"
