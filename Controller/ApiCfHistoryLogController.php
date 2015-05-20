@@ -13,7 +13,7 @@ use FOS\RestBundle\Controller\Annotations\RouteResource;
 /**
  * CfHistoryLog controller.
  *
- * @RouteResource("cf-history-log")
+ * @RouteResource("history-log")
  */
 class ApiCfHistoryLogController extends FOSRestController
 {
