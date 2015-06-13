@@ -65,6 +65,7 @@ class ApiCfHistoryLogController extends FOSRestController
                     } else {
                         $entities = null;
                     }
+                break;
                 default:
                     break;
             }
