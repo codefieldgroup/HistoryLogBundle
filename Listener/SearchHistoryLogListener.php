@@ -36,6 +36,8 @@ class SearchHistoryLogListener
      */
     public function getSearchHistoryByEntityAndSection( array $params, &$count )
     {
+
+        //TODO: Cambiar todo este codigo por search communRepository.
         extract( $params );
         $em = $this->container->get( 'doctrine.orm.entity_manager' );
         //        $expr = $em->getExpressionBuilder();
@@ -43,17 +45,17 @@ class SearchHistoryLogListener
         //get Count
         $qb_count = $em->createQueryBuilder();
         $qb_count->select( 'COUNT(entity.id)' )->from( 'cfHistoryLogBundle:CfHistoryLog', 'entity' );
-        $qb_count = $qb_count->andWhere( 'entity.'.'entity'.' = '.':entity' );
+        $qb_count = $qb_count->andWhere( 'entity.'.'entity'.' LIKE '.':entity' );
         $qb_count = $qb_count->andWhere( 'entity.'.'section'.' = '.':section' );
-        $qb_count->setParameter( 'entity', $entity );
+        $qb_count->setParameter( 'entity', '%'.$entity.'%' );
         $qb_count->setParameter( 'section', $section );
         $count = $qb_count->getQuery()->getSingleScalarResult();
 
         $qb = $em->createQueryBuilder();
         $qb->select( 'entity' )->from( 'cfHistoryLogBundle:CfHistoryLog', 'entity' );
-        $qb = $qb->andWhere( 'entity.'.'entity'.' = '.':entity' );
+        $qb = $qb->andWhere( 'entity.'.'entity'.' LIKE '.':entity' );
         $qb = $qb->andWhere( 'entity.'.'section'.' = '.':section' );
-        $qb->setParameter( 'entity', $entity );
+        $qb->setParameter( 'entity', '%'.$entity.'%' );
         $qb->setParameter( 'section', $section );
 
         if (isset( $limit ) && is_numeric( $limit )) {
