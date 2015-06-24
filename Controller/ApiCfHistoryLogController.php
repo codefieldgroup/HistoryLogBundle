@@ -2,13 +2,11 @@
 
 namespace Cf\HistoryLogBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\Controller\Annotations\RouteResource;
+use Doctrine\DBAL\DBALException as DBALException;
 
 /**
  * CfHistoryLog controller.
@@ -76,7 +74,7 @@ class ApiCfHistoryLogController extends FOSRestController
                     [ 'parameter' => $this->parameter ]
                 );
             }
-        }catch ( \Doctrine\DBAL\DBALException $e ){
+        }catch ( DBALException $e ){
             return $this->get( 'cf.commonbundle.restapi' )->buildRestApi(
                 null,
                 $this->get( 'cf.commonbundle.messenger' )->getError( 500 )/*@Error DB Error*/
