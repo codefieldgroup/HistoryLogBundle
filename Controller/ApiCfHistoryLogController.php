@@ -22,10 +22,16 @@ class ApiCfHistoryLogController extends FOSRestController
     public $parameter;
 
     /**
+     * @var
+     */
+    private $role_name;
+
+    /**
      * Constructor
      */
     function __construct()
     {
+        $this->role_name = 'ROLE_HISTORY_LOG_';
 
         $this->parameter = [ 'length_row' => '10', 'count' => -1 ];
     }
@@ -39,7 +45,9 @@ class ApiCfHistoryLogController extends FOSRestController
      */
     public function cgetAction( Request $request )
     {
-        // TODO: JCRC: Implementar la seguridad del sistema
+        $utils = $this->get('cf.sclinicbundle.utils');
+        /* Checking security access */
+        $utils->checkSecurity($this->role_name.'LIST');
         try{
             $em       = $this->getDoctrine()->getManager();
             $entities = [ ];
